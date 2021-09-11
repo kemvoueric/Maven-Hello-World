@@ -26,15 +26,11 @@ pipeline {
           }
           
 
-           stage("Moving webapp.war") {
-            steps {
-              sh 'cp webapp/target/webapp.war .'
-            }
-          }
-
+           
 
         stage("Building docker images") {
             steps {
+              sh 'cp webapp/target/webapp.war .'
               sh 'sudo docker build -t tomcat:${BUILD_NUMBER} .'
             }
           }

@@ -25,12 +25,7 @@ pipeline {
             }
           }
           
-         stage("Building docker images") {
-             steps {
-               sh 'sudo docker build -t tomcat:focus .'
-             }
-           }
-
+         
         }
 
 

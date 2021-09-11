@@ -18,7 +18,18 @@ pipeline {
               }
             }
           }
-         
+          
+          stage("Maven build") {
+            steps {
+              sh 'mvn clean install package'
+            }
+          }
+          
+        stage("Building docker images") {
+            steps {
+              sh 'docker build -t tomcat:focus .'
+            }
+          }
 
         }
 

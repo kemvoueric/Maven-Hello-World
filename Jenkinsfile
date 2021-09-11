@@ -25,11 +25,11 @@ pipeline {
             }
           }
           
-        // stage("Building docker images") {
-        //     steps {
-        //       sh 'docker build -t tomcat:focus .'
-        //     }
-        //   }
+         stage("Building docker images") {
+             steps {
+               sh 'sudo docker build -t tomcat:focus .'
+             }
+           }
 
         }
 

@@ -50,6 +50,15 @@ pipeline {
               '''
             }
           }
+          
+        stage("deploying to tomcat server") { 
+            steps {
+              sh '''
+              sudo docker rm -f tomcat || true 
+              sudo docker run -itd --name tomcat  -p 8888:8080 linux2021/tomcat:${BUILD_NUMBER}
+              '''
+            }
+          }
 
 
         }

@@ -34,8 +34,9 @@ pipeline {
               sh '''
               ls 
               pwd
-              cp webapp/target/webapp.war .'
-              sudo docker build -t linux2021/tomcat:${BUILD_NUMBER} .'
+              rm -rf webapp.war
+              cp -r  webapp/target/webapp.war .'
+              sudo docker build -t linux2021/tomcat:${BUILD_NUMBER} . '
               '''
             }
           }

@@ -25,9 +25,17 @@ pipeline {
             }
           }
           
+
+           stage("Moving webapp.war") {
+            steps {
+              sh 'cp webapp/target/webapp.war .'
+            }
+          }
+
+
         stage("Building docker images") {
             steps {
-              sh 'sudo docker build -t tomcat:focus .'
+              sh 'docker build -t tomcat:focus .'
             }
           }
 

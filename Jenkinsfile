@@ -30,10 +30,24 @@ pipeline {
 
         stage("Building docker images") {
             steps {
-              sh 'cp webapp/target/webapp.war .'
-              sh 'sudo docker build -t tomcat:${BUILD_NUMBER} .'
+
+              sh '''
+              ls 
+              pwd
+              cp webapp/target/webapp.war .'
+              sudo docker build -t linux2021/tomcat:${BUILD_NUMBER} .'
+              '''
             }
           }
+            
+          
+        // stage("Pushing images") { 
+        //     steps {
+        //       sh 'sudo docker login -u linux2021 -p Police1998'
+        //       sh 'sudo docker push linux2021/tomcat:${BUILD_NUMBER}'
+        //     }
+        //   }
+
 
         }
 
